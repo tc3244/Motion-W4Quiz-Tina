@@ -18,15 +18,15 @@ import { gsap } from "gsap";
 let mainTl = gsap.timeline();
 
 
-function Animation1(){
+function redBoxAni(){
 
     let tl = gsap.timeline();
 
-    tl.from("box red",{x:"0"})
+    tl.from(".red", {duration:1, x:"0"})
     ;
 
     return tl;
 }
 
-mainTl.add(Animation1())
+mainTl.add(redBoxAni())
 ;
