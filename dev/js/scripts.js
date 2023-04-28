@@ -2,31 +2,43 @@ import { gsap } from "gsap";
 
 //QUIZ
 
-// a div with class of .graph (400x350 grid of 50x50 tiles)
-// a div with class of .red positioned at x:150, y:150
-// a div with class of .blue positioned at x:200, y:150
-// a div with class of .green
-
-
-// time 0s: red animates from x:0 for 1 second
-// time 0s: blue animates from x:350 for 1 second
-// time 2s: red animates up to y:0 for 2 seconds
-// time 2s: blue animates down to y:300 for 2 seconds
-// *All animations should use an ease (timing function) that slows down towards the end.
-
+// have the red and blue elements bounce off each other when they meet
 
 let mainTl = gsap.timeline();
 
-
-function redBoxAni(){
+function graphAni(){
 
     let tl = gsap.timeline();
 
-    tl.from(".red", {duration:1, x:"0"})
+    tl.from(".graph", {autoalpha:0})
     ;
 
     return tl;
 }
 
-mainTl.add(redBoxAni())
+function redBoxAni(){
+
+    let tl = gsap.timeline();
+
+    tl.from(".red", {duration:1, x:"0",ease:"none"})
+    .to(".red", {duration:2, y:"0",ease:"none"})
+    ;
+
+    return tl;
+}
+
+function blueBoxAni(){
+
+    let tl = gsap.timeline();
+
+    tl.from(".blue", {duration:1, x:"350",ease:"none"})
+    .to(".blue", {duration:2, y:"300",ease:"none"})
+    ;
+
+    return tl;
+}
+
+mainTl.add(graphAni())
+.add(redBoxAni())
+.add(blueBoxAni())
 ;
