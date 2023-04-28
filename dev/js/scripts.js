@@ -2,8 +2,6 @@ import { gsap } from "gsap";
 
 //QUIZ
 
-// have the red and blue elements bounce off each other when they meet
-
 let mainTl = gsap.timeline();
 
 function graphAni(){
@@ -20,8 +18,8 @@ function redBoxAni(){
 
     let tl = gsap.timeline();
 
-    tl.from(".red", {duration:1, x:"0",ease:"none"})
-    .to(".red", {duration:2, y:"0",ease:"none"})
+    tl.from(".red", {duration:1, x:"0",ease:"none",ease:"bounce"})
+    .to(".red", {duration:2, y:"0",ease:"none",rotation: "+=360"})
     ;
 
     return tl;
@@ -31,8 +29,8 @@ function blueBoxAni(){
 
     let tl = gsap.timeline();
 
-    tl.from(".blue", {duration:1, x:"350",ease:"none"})
-    .to(".blue", {duration:2, y:"300",ease:"none"})
+    tl.from(".blue", {duration:1, x:"350",ease:"none",ease:"bounce"})
+    .to(".blue", {duration:2, y:"300",ease:"none",rotation: "+=360"})
     ;
 
     return tl;
